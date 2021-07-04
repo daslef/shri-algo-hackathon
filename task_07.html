@@ -1,0 +1,28 @@
+Task 07
+
+<script>
+function checkNumber(number) {
+    let i = 2;
+    while (i < number) {
+        if (number % i == 0) {
+            return false
+        }
+        i++
+    }
+    return true
+}
+
+function primeNumbers(n) {
+    const output = [];
+    for (let i = 2; i <= n; i++) {
+        if (checkNumber(i)) {
+            output.push(i)
+        }
+    }
+    return output
+}
+
+console.log(primeNumbers(1))
+console.log(primeNumbers(2))
+console.log(primeNumbers(100))
+</script>
