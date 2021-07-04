@@ -1,12 +1,19 @@
 Task 06
 
 <script>
-const validChars = [..."[]{}()"];
-const bracketsMapping = {
+const validChars = ['[', ']', '{', '}', '(', ')'];
+
+const mapping = {
   "(": ")",
   "[": "]",
-  "{": "}",
+  "{": "}"
 };
+
+const reverseMapping = {
+  ")": "(",
+  "]": "[",
+  "}": "{"
+}
 
 function isValid(str) {
   const stack = [];
@@ -15,13 +22,15 @@ function isValid(str) {
       continue;
     }
     const stackLast = stack[stack.length - 1];
+
+    if (!stack.includes(reverseMapping(c)))
+
     if (bracketsMapping[stackLast] == c) {
       stack.pop();
     } else {
       stack.push(c);
     }
   }
-
   return stack.length == 0;
 }
 
