@@ -1,0 +1,36 @@
+Task 05
+
+<script>
+function traverse(data) {
+    const nodes = [];
+    const queue = [data];
+
+    while (queue.length > 0) {
+      let { value, children } = queue.shift();
+
+      nodes.push(value);
+  
+      if (children) {
+        children.map(node => queue.push(node))
+      }
+    };
+  
+    return nodes;
+}
+
+const sample = {
+    value: 1,
+    children: [
+      {
+        value: 2,
+        children: [{ value: 4 }, { value: 5 }],
+      },
+      {
+        value: 3,
+        children: [{ value: 6 }],
+      },
+    ],
+};
+
+console.log(traverse(sample))
+</script>
