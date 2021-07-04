@@ -1,0 +1,34 @@
+Task 08
+
+<script>
+  function binarySearch(data, number) {
+    let leftIx = 0;
+    let rightIx = data.length - 1;
+
+    while (leftIx <= rightIx) {
+      let middleIx = Math.floor((leftIx + rightIx) / 2);
+
+      if (number === data[middleIx]) {
+        return middleIx;
+      }
+
+      if (number < data[middleIx]) {
+        rightIx = middleIx - 1;
+      } else {
+        leftIx = middleIx + 1;
+      }
+    }
+
+    return -1;
+  }
+
+  const data = [2, 5, 7, 8, 11, 13, 17, 19, 23, 29];
+
+  for (const element of data) {
+    console.log(binarySearch(data, element));
+  }
+
+  console.log(binarySearch(data, 40));
+  console.log(binarySearch(data, 0));
+  console.log(binarySearch(data, 14));
+</script>
