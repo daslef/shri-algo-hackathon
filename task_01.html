@@ -1,3 +1,19 @@
 Task 01
 
-<script></script>
+<script>
+const data = [2,4,3,9,1];
+
+function sort(data) {
+    let n = data.length;
+    for (let i = 0; i < n; i++) {
+        for (let k = 0; k < n - i; k++) {
+            if (data[k] > data[k+1]) {
+                [data[k], data[k+1]] = [data[k+1], data[k]]
+            }
+        }
+    }
+    return data
+}
+
+console.log(sort(data))
+</script>
