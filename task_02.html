@@ -1,3 +1,30 @@
 Task 02
 
-<script></script>
+<script>
+function findMinimal(slice) {
+    let minEl = slice[0];
+    let minIx = 0;
+
+    for (let i = 0; i < slice.length; i++) {
+        if (slice[i] < minEl) {
+            minEl = slice[i];
+            minIx = i;
+        }
+    }
+
+    return minIx
+}
+
+function selectionSort(data) {
+    let n = data.length;
+    for (let i = 0; i < n; i++) {
+        const slice = data.slice(i);
+        const minIndex = findMinimal(slice) + i;
+        [data[i], data[minIndex]] = [data[minIndex], data[i]]
+    }
+    return data
+}
+
+const data = [7,14,1,3,8,4,2,9,6];
+console.log(selectionSort(data))
+</script>
