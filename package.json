@@ -1,0 +1,22 @@
+{
+  "name": "shri-algo-hackathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "publish": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daslef/shri-algo-hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daslef/shri-algo-hackathon/issues"
+  },
+  "homepage": "https://github.com/daslef/shri-algo-hackathon#readme",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
