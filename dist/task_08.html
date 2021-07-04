@@ -2,6 +2,11 @@ Task 08
 
 <script>
   function binarySearch(data, number) {
+
+    if (number < data[0] || number > data[data.length-1]) {
+        return -1
+    }
+
     let leftIx = 0;
     let rightIx = data.length - 1;
 

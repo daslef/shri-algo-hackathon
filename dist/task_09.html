@@ -1,0 +1,34 @@
+Task 09
+
+<script>
+  function reverseLinked(data) {
+    let current = data;
+    let prev = null;
+    let next = null;
+
+    while (current) {
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+
+    return prev;
+  }
+
+  const list = {
+    value: 1,
+    next: {
+      value: 2,
+      next: {
+        value: 3,
+        next: {
+          value: 4,
+          next: null,
+        },
+      },
+    },
+  };
+
+  console.log(reverseLinked(list));
+</script>
