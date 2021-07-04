@@ -1,42 +1,46 @@
 Task 06
 
 <script>
-const validChars = ['[', ']', '{', '}', '(', ')'];
-
-const mapping = {
-  "(": ")",
-  "[": "]",
-  "{": "}"
-};
-
-const reverseMapping = {
-  ")": "(",
-  "]": "[",
-  "}": "{"
-}
-
-function isValid(str) {
-  const stack = [];
-  for (const c of str) {
-    if (!validChars.includes(c)) {
-      continue;
-    }
-    const stackLast = stack[stack.length - 1];
-
-    if (!stack.includes(reverseMapping(c)))
-
-    if (bracketsMapping[stackLast] == c) {
-      stack.pop();
-    } else {
-      stack.push(c);
-    }
+  const validChars = ['[', ']', '{', '}', '(', ')'];
+  
+  const mapping = {
+    "(": ")",
+    "[": "]",
+    "{": "}"
+  };
+  
+  const reverseMapping = {
+    ")": "(",
+    "]": "[",
+    "}": "{"
   }
-  return stack.length == 0;
-}
-
-console.log(isValid("(foo)")); // true
-console.log(isValid("(f[o]{o})")); // true
-console.log(isValid("[(){}()()]")); // true
-console.log(isValid("(foo")); // false — нет закрывающей
-console.log(isValid("{f[o}o]")); // false — скобки пересекаются
+  
+  function isValid(str) {
+    const stack = [];
+    for (const c of str) {
+      if (!validChars.includes(c)) {
+        continue;
+      }
+  
+      const stackLast = stack[stack.length - 1];
+      
+      if ((c in reverseMapping) && (!stack.includes(reverseMapping[c]))) {
+        return false
+      }
+  
+      if (mapping[stackLast] == c) {
+        stack.pop();
+      } else {
+        stack.push(c);
+      }
+    }
+  
+    return stack.length == 0;
+  }
+  
+  console.log(isValid("(foo)")); // true
+  console.log(isValid("(f[o]{o})")); // true
+  console.log(isValid("[(){}()()]")); // true
+  console.log(isValid("(foo")); // false — нет закрывающей
+  console.log(isValid("{f[o}o]")); // false — скобки пересекаются
 </script>
